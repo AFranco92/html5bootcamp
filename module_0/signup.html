@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+  	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Sign up</title>
+  </head>
+  <body>
+  	<div>
+  	  <h2>Sign up</h2>
+  	  <h4>Please complete the fields</h4>
+      <form>
+        <label for="fname">First name</label>
+        <input id="fname" type="text" required>
+        <label for="lname">Last name</label>
+        <input id="lname" type="text" required>
+        <label for="bday">Birthday</label>
+        <input id="bday" type="date" required>
+        <label for="email">E-mail</label>
+        <input id="email" type="email" required>
+        <label for="dropdown">Favourite sport</label>
+        <select id="dropdown">
+       	  <option>Football</option>
+       	  <option>Tennis</option>
+       	  <option>Voleyball</option>
+       	  <option>Rugby</option>
+        </select>
+        <label for="sbio">Small bio</label>
+        <textarea id="sbio"></textarea>
+        <div>
+   	      <input class="button" type="button" value="Clear form">
+          <input class="button" type="submit" value="Send">
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
