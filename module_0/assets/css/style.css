@@ -4,14 +4,16 @@
   margin: 0.8%;
 }
 .item-b {
-  width: 23%;
+  box-sizing: border-box;
+  width: 23.4%;
   height: 340px;
   background-color: #E64B4B;
   margin: 0.8%;
   float: left;
 }
 .item-c {
-  width: 49.2%;
+  box-sizing: border-box;
+  width: 48.4%;
   height: 340px;
   background-color: #EA9D0E;
   margin: 0.8%;
@@ -36,7 +38,8 @@
   background-color: #5B3E7F;
 }
 .item-d {
-  width: 23%;
+  box-sizing: border-box;
+  width: 23.4%;
   height: 340px;
   background-color: #2F769F;
   margin: 0.8%;
