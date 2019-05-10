@@ -1,3 +1,13 @@
+* {
+  font-family: arial;
+  font-size: 14px;
+}
+header, footer {
+  text-align: center;
+}
+h2 {
+  padding: 2%;
+}
 .item-a {
   height: 150px;
   background-color: #817878;
