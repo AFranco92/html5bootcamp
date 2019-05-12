@@ -2,10 +2,10 @@
 	font-family: sans-serif;
 	margin: 6px;
 }
-span {
+.contact {
   font-weight: bolder;
 }
-.container > .design > img {
+.container > .design > .designimg {
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -23,17 +23,14 @@ span {
 	align-content: stretch;
 }
 .scheader {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: flex-end;
 	width: 100vw;
 	height: 30vh;
 	border: solid 1px #DED9D2;
+	box-sizing: border-box;
 }
 .headertext {
-	margin-left: 30rem;
-	align-self: flex-start;
+	top: 0;
+	margin-left: 300px;
 }
 .design {
 	position: relative;
@@ -55,4 +52,37 @@ span {
 .design:hover .description {
   visibility: visible;
   opacity: 1;
+}
+@media all and (max-width: 599px) and (min-width: 320px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+  }
+  .scheader {
+  	width: 90vw;
+  }
+  .design {
+  	width: 75vw;
+  }
+  section.headertext {
+  	margin-left: 0px;
+  }
+}
+@media all and (max-width: 799px) and (min-width: 420px){
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    flex-wrap: nowrap;
+  }
+  .scheader {
+  	width: 92vw;
+  }
+  .design {
+  	width: 85vw;
+  	height: 45vh;
+  }
+  .headertext {
+  	margin-left: 0px;
+  }
 }
