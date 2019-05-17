@@ -91,6 +91,10 @@ section {
 .hide {
   opacity: 0;
 }
+.button {
+  margin-left: -370px;
+  margin-top: 350px;
+}
 @keyframes fade_in {
   from {opacity: 0;}
   to {opacity: 1;}
