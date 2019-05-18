@@ -79,6 +79,7 @@ section {
   font-size: 10px;
 }
 .content {
+  font-size: 30px;
   opacity: 1;
   transition: opacity 2s;
 }
@@ -94,6 +95,12 @@ section {
 .button {
   margin-left: -370px;
   margin-top: 350px;
+}
+.error {
+  background-color: #FF1F00;
+}
+.spinner {
+  max-width: 100px;
 }
 @keyframes fade_in {
   from {opacity: 0;}
