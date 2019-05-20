@@ -66,6 +66,7 @@ section {
 }
 .navigation, .sidebar, article.item-c2 {
   background-color: blue;
+  color: white;
 }
 .footer > h2 {
   font-size: 10px;
@@ -93,6 +94,9 @@ li {
 .show {
   animation: fade_in 1.4s;
 }
+.showlist {
+  animation: fade_in 0.5s;
+}
 .hide {
   opacity: 0;
 }
@@ -110,6 +114,10 @@ li {
   float: right;
   margin-top: -20px;
   margin-right: 50px;
+}
+table, tr, td {
+  padding: 10px;
+  margin: 0 auto;
 }
 @keyframes fade_in {
   from {opacity: 0;}

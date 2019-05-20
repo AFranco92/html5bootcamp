@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded",function() {
 
 	let greetssection = document.querySelector("section");
 	let repolist = document.querySelector("ul");
+	let navtable = document.querySelector("nav");
 	greetssection.classList.replace("hide", "show");
 
 	//Arrow function that showcases an alert message when called.
@@ -39,6 +40,7 @@ document.addEventListener("DOMContentLoaded",function() {
 		repolist.innerHTML = "";
 		json.items.forEach(function(item) {
 			let repo = document.createElement("li");
+			repo.classList.add("showlist");
 			repo.innerHTML = item.html_url;
 			repolist.appendChild(repo);
 		});
@@ -53,4 +55,36 @@ document.addEventListener("DOMContentLoaded",function() {
 
 	let searchbutton = document.getElementsByClassName("searchbutton")[0];
 	searchbutton.addEventListener("click", searchRepositories);
+
+	let generateMatrix = function(size) {
+		let a = [];
+		for (let i = 0; i < size; i++) {
+		   	a[i] = [];
+		   	for (let j = 0; j < size; j++) {
+		      	a[i][j] = "[" + i + "," + j + "]";
+		   	}
+		}
+		return a;
+	}
+
+	let tabledata = generateMatrix(4);
+
+	let generateTable = function(tabledata) {
+		let table   = document.createElement("table");
+  		let tblbody = document.createElement("tbody");
+		for (let i = 0; i < tabledata.length; i++) {
+		   	let row = document.createElement("tr");
+		   	for (let j = 0; j < tabledata.length; j++) {
+		      	let cell = document.createElement("td");
+		      	let celltext = document.createTextNode(tabledata[i][j]);
+		      	cell.appendChild(celltext);
+		      	row.appendChild(cell);
+		   	}
+		   	tblbody.appendChild(row);
+		}
+		table.appendChild(tblbody);
+		navtable.appendChild(table);
+		table.setAttribute("border", "2");
+	}
+	generateTable(tabledata);
 });
