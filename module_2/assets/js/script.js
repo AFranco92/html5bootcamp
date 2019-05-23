@@ -6,25 +6,6 @@ document.addEventListener("DOMContentLoaded",function() {
 	let displayAlert = () => alert(msg);
 	let displayUpperCaseAlert = () => alert(msg.toUpperCase());
 
-
-	class Movie {
-		constructor(name, year, duration) {
-			this.name = name;
-			this.year = year;
-			this.duration = duration;
-		}
-		play = () => console.log("The movie "+this.name+" has started");
-		pause = () => console.log("The movie "+this.name+" has stopped");
-		resume = () => console.log("The movie "+this.name+" has restarted");
-	}
-
-	class Actor {
-		constructor(name, age){
-			this.name = name;
-			this.age = age;
-		}
-	}
-
 	class EventEmitter {
 		listeners = {};
 		addListener(eventName, callback) {
@@ -35,7 +16,7 @@ document.addEventListener("DOMContentLoaded",function() {
 		}
 
 		removeListener(eventName, callback) {
-			//getting the callbacks for that event
+			//getting the callbacks for that event.
 		    let callbacks = this.listeners[eventName];
 
 		    //if not exist, returns the obj.
@@ -45,7 +26,7 @@ document.addEventListener("DOMContentLoaded",function() {
 		    for(let i = 0; i < callbacks.length; i++) {
 		      	if (callbacks[i] === callback) {
 
-		      		//if equals, delete it once
+		      		//if equals, delete it once.
 		        	callbacks.splice(i,1); 
 
 		        	//and stop the loop.
@@ -58,7 +39,7 @@ document.addEventListener("DOMContentLoaded",function() {
 			return this.addListener(eventName, callback);
 		}
 		emit(eventName) {
-			//getting the callbacks for that event
+			//getting the callbacks for that event.
 		    let callbacks = this.listeners[eventName];
 
 		    //if not exist, return false.
@@ -75,19 +56,34 @@ document.addEventListener("DOMContentLoaded",function() {
 		}
 	}
 
+	class Movie extends EventEmitter {
+		constructor(name, year, duration, listeners) {
+			super(listeners);
+			this.name = name;
+			this.year = year;
+			this.duration = duration;
+		}
+		play = () => alert("The movie "+this.name+" has started");
+		pause = () => alert("The movie "+this.name+" has stopped");
+		resume = () => alert("The movie "+this.name+" has restarted");
+	}
+
+	class Actor {
+		constructor(name, age){
+			this.name = name;
+			this.age = age;
+		}
+	}
+
 	let matilda = new Movie("Matilda", "1996", "1h42m");
 	let titanic = new Movie("Titanic", "1997", "3h15m");
 	let ironman = new Movie("Iron-Man", "2008", "2h6m");
 	let eventemitter1 = new EventEmitter();
-	
+
 	eventemitter1.on("click", displayAlert);
 	eventemitter1.on("click", displayUpperCaseAlert);
 	eventemitter1.emit("click");
-	eventemitter1.removeListener("click", displayAlert);
 
-	matilda.play();
-	matilda.pause();
-	matilda.resume();
-
-	document.querySelector("div").addEventListener("click", () => eventemitter1.on("click", displayAlert()));
+	//calling inherited function on, using play as the callback.
+	document.querySelector("div").addEventListener("click", () => matilda.on("click", matilda.play()));
 });
