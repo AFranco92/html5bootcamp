@@ -1,0 +1,23 @@
+{
+  "name": "html5bootcamp",
+  "version": "1.0.0",
+  "description": "Are you ready for it?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AFranco92/html5bootcamp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AFranco92/html5bootcamp/issues"
+  },
+  "homepage": "https://github.com/AFranco92/html5bootcamp#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5"
+  }
+}
