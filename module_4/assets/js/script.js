@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded",function() {
 
 	"use strict";
 
-	//------------------Storages-----------------------------------------
+	//------------------Storages--------------------------------------------
 
 	let textarea = document.querySelector("textarea");
 
@@ -73,33 +73,33 @@ document.addEventListener("DOMContentLoaded",function() {
   		document.getElementById("textsaved").innerHTML = "";
 	});
 
-  	//------------------Drag and drop support-----------------------------------------
+  	//------------------Drag and drop support-------------------------------
 
 	//Defining the holder element that will contains the dragged text.
-	let holder = document.getElementById('textsaved');
+	let holder = document.getElementById("textsaved");
 
 	//A <p> element is selected to show the state of the file reader API.
-    let state = document.getElementById('status');
+    let state = document.getElementById("status");
 
     //Printing in the DOM if the browser support the file reader API or not.
-	if (typeof window.FileReader === 'undefined') {
-	    state.className = 'fail';
+	if (typeof window.FileReader === "undefined") {
+	    state.className = "fail";
 	} else {
-	    state.className = 'success';
-	    state.innerHTML = 'File API & FileReader available';
+	    state.className = "success";
+	    state.innerHTML = "File API & FileReader available";
 	}
 
 	//These events don't work in IE
 	holder.ondragover = function() {
-	    this.className = 'hover';
+	    this.className = "hover";
 	    return false;
 	};
 	holder.ondragend = function() {
-	    this.className = '';
+	    this.className = "";
 	    return false;
 	};
 	holder.ondrop = function(e) {
-	    this.className = '';
+	    this.className = "";
 	    e.preventDefault();
 
 	    //Taking the first element of the files contained in data transfer of the event.
@@ -115,4 +115,29 @@ document.addEventListener("DOMContentLoaded",function() {
 	    reader.readAsText(file);
 	    return false;
 	}
+
+	//------------------Web Sockets-----------------------------------------
+
+	//Creating an WebSocket object.
+	let connection = new WebSocket("ws://echo.websocket.org");
+	console.log(connection);
+
+	//Sending data to the server when the connection is open.
+	connection.onopen = function () {
+	  connection.send("Bla");
+	};
+
+	//Logging errors.
+	connection.onerror = function (error) {
+	  console.log("WebSocket Error" + error);
+	};
+
+	//Loggin messages from the server.
+	connection.onmessage = function (e) {
+	  console.log("Server: " + e.data);
+	};
+
+	//------------------SVG-------------------------------------------------
+
+	
 });
