@@ -2,13 +2,15 @@ document.addEventListener("DOMContentLoaded",function() {
 
 	"use strict";
 
+	//------------------Storages-----------------------------------------
+
 	let textarea = document.querySelector("textarea");
 
 	//Using localStorage (uncomment to test)
 	
 	/*let myLocalStorage = window.localStorage;
 
-	//Using localStorage, the value of the top textarea is saved and showed
+	//Using localStorage, the value of the top textarea is saved and shown
 	//in the another one.
 	document.getElementById("savebutton").addEventListener("click", function(e) {
 		e.preventDefault();
@@ -17,7 +19,7 @@ document.addEventListener("DOMContentLoaded",function() {
 		//Getting the value saved previously and assigned to a var.
 		let valuesaved = myLocalStorage.getItem("textareavalue");
 
-		//Then, this value is showed in the result textarea.
+		//Then, this value is shown in the result textarea.
 		document.getElementById("textsaved").innerHTML = valuesaved;
 	});
 
@@ -70,4 +72,47 @@ document.addEventListener("DOMContentLoaded",function() {
   		store.delete(1);
   		document.getElementById("textsaved").innerHTML = "";
 	});
+
+  	//------------------Drag and drop support-----------------------------------------
+
+	//Defining the holder element that will contains the dragged text.
+	let holder = document.getElementById('textsaved');
+
+	//A <p> element is selected to show the state of the file reader API.
+    let state = document.getElementById('status');
+
+    //Printing in the DOM if the browser support the file reader API or not.
+	if (typeof window.FileReader === 'undefined') {
+	    state.className = 'fail';
+	} else {
+	    state.className = 'success';
+	    state.innerHTML = 'File API & FileReader available';
+	}
+
+	//These events don't work in IE
+	holder.ondragover = function() {
+	    this.className = 'hover';
+	    return false;
+	};
+	holder.ondragend = function() {
+	    this.className = '';
+	    return false;
+	};
+	holder.ondrop = function(e) {
+	    this.className = '';
+	    e.preventDefault();
+
+	    //Taking the first element of the files contained in data transfer of the event.
+	    let file = e.dataTransfer.files[0];
+
+	    //A new object of FileReader is created to control when a file is loaded in the textarea.
+	    let reader = new FileReader();
+	    reader.onload = function(event) {
+
+	    	//The content of the file is shown in the textarea.
+	        holder.innerText = event.target.result;
+	    };
+	    reader.readAsText(file);
+	    return false;
+	}
 });
