@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded",function() {
 	  console.log("Server: " + e.data);
 	};
 
-	//------------------SVG-------------------------------------------------
-
 	
+
+
 });
