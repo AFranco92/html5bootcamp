@@ -22,3 +22,7 @@ button {
 textarea, button {
 	padding: 5px;
 }
+#mycanvas {
+	border: 5px groove;
+	border-radius: 5px;
+}
