@@ -1,0 +1,35 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+input {
+  margin-top: 5px; 
+  display: flex;
+  flex-direction: column;
+}
+table, tr {
+  margin-top: 10px;
+  border: 1px solid black;
+}
+td {
+  padding: 5px;
+}
+.btnedit, .btndel, .btncanceledit, .btnconfedit {
+  border-radius: 10px;
+  color: white;
+}
+.btnedit {
+  background-color: coral;
+}
+.btndel {
+  background-color: crimson;
+}
+.btncanceledit {
+  background-color: coral;
+}
+.btnconfedit {
+  background-color: dodgerblue;
+}
+.editfield {
+  width: 50px;
+}
