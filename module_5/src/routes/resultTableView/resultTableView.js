@@ -1,7 +1,7 @@
-import {toggleFav, delMovie, addFav, delFav, editMovie, toggleEdit} from "../actions/index";
+import {toggleFav, delMovie, addFav, delFav, editMovie, toggleEdit} from "../../actions/index";
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import '../index.css';
+import "../../index.css";
 
 const mapStateToProps = state => {
   return { movies: state.movies,
@@ -19,7 +19,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-class ConnectedResultTable extends Component {
+class ConnectedResultTableView extends Component {
   constructor() {
     super();
     this.getIndex = this.getIndex.bind(this);
@@ -128,5 +128,5 @@ class ConnectedResultTable extends Component {
   }
 }
 
-const ResultTable = connect(mapStateToProps, mapDispatchToProps)(ConnectedResultTable);
-export default ResultTable;
+const ResultTableView = connect(mapStateToProps, mapDispatchToProps)(ConnectedResultTableView);
+export default ResultTableView;

@@ -1,15 +1,7 @@
 import { ADD_MOVIE, DEL_MOVIE, TOGGLE_FAV, ADD_FAV, DEL_FAV, EDIT_MOVIE, TOGGLE_EDIT } from "../constants/action-types";
-import uuidv1 from "uuid";
 
 const initialState = {
-  movies: [{
-    id: uuidv1(),
-    name: "Titanic",
-    year: 1997,
-    duration: 190,
-    isfavorite: false,
-    editable: false
-  }],
+  movies: [],
   favmovies: []
 };
 

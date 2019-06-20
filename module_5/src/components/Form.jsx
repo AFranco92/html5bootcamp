@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import uuidv1 from "uuid";
 import { addMovie } from "../actions/index";
+import { Link } from 'react-router-dom';
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -37,6 +38,7 @@ class ConnectedForm extends Component {
         <input id="moviename" type="text" placeholder="Choose a name"></input>
         <input id="movieyear" type="number" placeholder="Choose a year"></input>
         <input id="movieduration" type="number" placeholder="Choose a duration"></input>
+        <button><Link to="/moviestable">Show table</Link></button>
         <input type="submit" value="Create"></input>
     </form>
     );
